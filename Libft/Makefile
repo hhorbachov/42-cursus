@@ -1,25 +1,35 @@
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
-SRC = ft_itoa.c ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
-	ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-	ft_putstr_fd.c ft_striteri.c ft_strlen.c ft_strmapi.c
-OBJ = $(SRC:.c=.o)
+NAME	:= libft.a
 
-.PHONY: all clean fclean re
+CC		:= gcc
+CFLAGS	:= -Wall -Wextra -Werror -I.
+
+AR		:= ar rcs
+RM		:= rm -f
+
+SRC_DIR	:= .
+OBJ_DIR	:= obj
+
+SRCS	:= $(wildcard $(SRC_DIR)/*.c $(SRC_DIR)/*/*.c)
+OBJS	:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
+DEPS	:= $(OBJS:.o=.d)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-	@echo "Library Created!"
+$(NAME): $(OBJS)
+	@$(AR) $@ $^
 
-%.o: %.c
-	@cc $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+-include $(DEPS)
+
 clean:
-	@rm -f $(OBJ)
-	@echo "Object files removed"
+	@$(RM) -r $(OBJ_DIR)
+
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Library removed"
+	@$(RM) $(NAME)
+
 re: fclean all
+
+bonus: all
