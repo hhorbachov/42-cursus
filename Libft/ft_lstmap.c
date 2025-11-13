@@ -6,13 +6,12 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:22:30 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 21:29:37 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/13 13:42:24 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-	
-}
+// t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+// {
+// }

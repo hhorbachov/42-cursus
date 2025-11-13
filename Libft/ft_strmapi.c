@@ -6,17 +6,17 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:01:59 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 19:49:08 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/13 13:59:53 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	test(unsigned int i, char c)
-{
-	printf("test1:\nIndex: %d, Character: %c\n", i, c);
-	return (c);
-}
+// static char	test(unsigned int i, char c)
+// {
+// 	printf("test1:\nIndex: %d, Character: %c\n", i, c);
+// 	return (c);
+// }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

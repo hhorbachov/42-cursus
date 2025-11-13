@@ -6,7 +6,7 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 20:34:15 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 20:40:33 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/13 13:40:25 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    new->next = *lst;
+	new->next = *lst;
 	*lst = new;
 }

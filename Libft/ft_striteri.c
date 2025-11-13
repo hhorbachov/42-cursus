@@ -6,7 +6,7 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 19:49:30 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 20:15:56 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/13 13:44:34 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // void	test(unsigned int i, char *cp)
 // {
 // 	char	c;
-
 // 	c = 'A';
 // 	printf("test:\nIndex: %d, Character: %c\n", i, *cp);
 // 	*cp = c;

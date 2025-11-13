@@ -6,7 +6,7 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 21:20:14 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 21:22:15 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/13 13:45:05 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst)
 		return ;
-    while (lst)
+	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
