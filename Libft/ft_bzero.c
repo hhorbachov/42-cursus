@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 13:21:15 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/07 13:33:37 by hhorbach         ###   ########.fr       */
+/*   Created: 2025/11/04 14:35:57 by hhorbach          #+#    #+#             */
+/*   Updated: 2025/11/14 14:17:13 by hhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include <stdio.h>
+// #include <string.h>
+
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned int	i;
-	unsigned char	*s1p;
-	unsigned char	*s2p;
+	unsigned char	*s1;
 
-	s1p = (unsigned char *)s1;
-	s2p = (unsigned char *)s2;
+	s1 = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (s1p[i] != s2p[i])
-			return (s1p[i] - s2p[i]);
+		s1[i] = 0;
 		i++;
 	}
-	return (0);
 }
 
-// int	main(void)
+// int main(void)
 // {
-// 	const char s1[] = "Hello, World!";
-// 	const char s2[] = "HellO, World!";
+// 	char s[] = "Hello, World!";
+// 	char s1[] = "Hello, World!";
 
-// 	printf("ft_memcmp: %d\n", ft_memcmp(s1, s2, 10));
-// 	printf("ft_memcmp: %d\n", memcmp(s1, s2, 10));
+// 	char *sp = &s[3];
+// 	char *s1p = &s1[3];
+
+// 	printf("string: %s\n", s);
+// 	ft_bzero(sp, 3);
+// 	printf("string: %s\n", s);
+// 	printf("string1: %s\n", s1);
+// 	bzero(s1p, 3);
+// 	printf("string1: %s\n", s1);
 // }

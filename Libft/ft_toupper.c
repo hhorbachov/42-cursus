@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 20:11:34 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/14 17:49:50 by hhorbach         ###   ########.fr       */
+/*   Created: 2025/11/05 16:42:20 by hhorbach          #+#    #+#             */
+/*   Updated: 2025/11/05 16:57:19 by hhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_toupper(int c)
 {
-	char	*nbr;
-
-	nbr = ft_itoa(n);
-	ft_putstr_fd(nbr, fd);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }
+
+// int main(void)
+// {
+// 	char c = 'A';
+// 	printf("to_upper: %c\n", ft_toupper(c));
+// 	printf("%c\n", c);
+// 	c = 'a';
+// 	printf("to_upper: %c\n", ft_toupper(c));
+// 	printf("%c\n", c);
+// 	c = 'A';
+// 	printf("to_upper: %c\n", toupper(c));
+// 	printf("%c\n", c);
+// 	c = 'a';
+// 	printf("to_upper: %c\n", toupper(c));
+// 	printf("%c\n", c);
+// }

@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 13:21:15 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/07 13:33:37 by hhorbach         ###   ########.fr       */
+/*   Created: 2025/11/04 13:33:36 by hhorbach          #+#    #+#             */
+/*   Updated: 2025/11/14 14:15:20 by hhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include <stdio.h>
+// #include <string.h>
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned int	i;
-	unsigned char	*s1p;
-	unsigned char	*s2p;
+	unsigned int				i;
+	unsigned char				*s1;
 
-	s1p = (unsigned char *)s1;
-	s2p = (unsigned char *)s2;
+	s1 = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (s1p[i] != s2p[i])
-			return (s1p[i] - s2p[i]);
+		s1[i] = (unsigned char)c;
 		i++;
 	}
-	return (0);
+	return (s);
 }
 
 // int	main(void)
 // {
-// 	const char s1[] = "Hello, World!";
-// 	const char s2[] = "HellO, World!";
+// 	char s[] = "Welcome to Tutorialspoint";
+// 	printf("string: %s\n", s);
+// 	ft_memset(s, '#', 7);
+// 	printf("string: %s\n", s);
 
-// 	printf("ft_memcmp: %d\n", ft_memcmp(s1, s2, 10));
-// 	printf("ft_memcmp: %d\n", memcmp(s1, s2, 10));
+// 	char s1[] = "Welcome to Tutorialspoint";
+// 	printf("string: %s\n", s1);
+// 	memset(s1, '#', 7);
+// 	printf("string: %s\n", s1);
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 23:24:55 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 14:01:01 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/14 17:08:42 by hhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ static int	count_digits(long n)
 	int	counter;
 
 	counter = 0;
-	if (n < 0)
+	if (n <= 0)
 	{
 		counter++;
-		n *= -1;
 	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
+	while (n != 0)
 	{
 		counter++;
 		n /= 10;
@@ -46,7 +43,7 @@ static char	*fill_string(int n)
 	if (!s)
 		return (NULL);
 	if (n < 0)
-		num *= -1;
+		num = -num;
 	if (n == 0)
 		s[i++] = '0';
 	while (num > 0)
@@ -55,8 +52,8 @@ static char	*fill_string(int n)
 		num /= 10;
 	}
 	if (n < 0)
-		s[count_digits(n) - 1] = '-';
-	s[++i] = '\0';
+		s[i++] = '-';
+	s[i] = '\0';
 	return (s);
 }
 
@@ -68,7 +65,7 @@ static void	reverse_string(char *s)
 
 	i = 0;
 	len = ft_strlen(s);
-	while (i < len / 2)
+	while (s[i] != '\0' && i < len / 2)
 	{
 		temp = s[i];
 		s[i] = s[len - i - 1];
@@ -90,8 +87,12 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	int	n;
 
-// 	n = INT_MAX;
-// 	printf("String for digit %d: %s\n", n, ft_itoa(n));
+// 	char *res = ft_itoa(-9);
+// 	while (*res != '\0')
+// 	{
+// 		printf("\n%c", *res);
+// 		res++;
+// 	}
+// 	// printf("\n%s", res);
 // }
