@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:31:33 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/10 15:24:34 by hhorbach         ###   ########.fr       */
+/*   Updated: 2025/11/15 03:18:02 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,24 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
-	unsigned int	i;
 
+	if (n == 0)
+		return (dest);
+	if (!dest && !src)
+		return (dest);
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	i = 0;
 	if (d < s)
 	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		while (n--)
+			*d++ = *s++;
 	}
 	else
 	{
-		while (n > 0)
-		{
-			n--;
-			d[n] = s[n];
-		}
+		d += n;
+		s += n;
+		while (n--)
+			*--d = *--s;
 	}
 	return (dest);
 }

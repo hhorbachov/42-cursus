@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:29:25 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/14 17:27:43 by hhorbach         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:44:34 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	count_words(char const *s, char c)
 			while (s[i] && s[i] == c)
 				i++;
 		}
-		if (s[i] != c)
+		if (s[i] != c && s[i])
 		{
 			counter++;
 			while (s[i] && s[i] != c)
@@ -96,12 +96,24 @@ char	**add_words(char **arr, const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	char	*cp;
+	char	*trimmed;
+	char	cp[2];
 
-	cp = &c;
-	s = ft_strtrim(s, cp);
-	arr = malloc_strings(s, c);
-	arr = add_words(arr, s, c);
+	cp[0] = c;
+	cp[1] = '\0';
+	if (!s)
+		return (NULL);
+	trimmed = ft_strtrim(s, cp);
+	if (!trimmed)
+		return (NULL);
+	arr = malloc_strings(trimmed, c);
+	if (!arr)
+	{
+		free (trimmed);
+		return (NULL);
+	}
+	arr = add_words(arr, trimmed, c);
+	free (trimmed);
 	return (arr);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:06:32 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/14 17:23:05 by hhorbach         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:51:40 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ char	*ft_make_empty_str(void)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*substr;
-	unsigned int	i;
-	unsigned int	length;
-	unsigned int	true_length;
+	size_t			i;
+	size_t			length;
+	size_t			true_length;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	length = ft_strlen(s);
 	if (start >= length)
 		return (ft_make_empty_str());
@@ -38,7 +40,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		true_length = len;
 	substr = malloc(true_length + 1);
 	if (!(substr))
-		return (0);
+		return (NULL);
 	while (i < true_length)
 	{
 		substr[i] = s[start + i];

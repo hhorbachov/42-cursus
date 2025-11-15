@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 21:01:27 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/11 21:19:47 by hlib             ###   ########.fr       */
+/*   Created: 2025/11/07 16:54:12 by hhorbach          #+#    #+#             */
+/*   Updated: 2025/11/15 13:27:17 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+char	*ft_strdup(const char *s)
 {
-	t_list	*temp;
+	char	*dupl;
+	int		i;
 
-	if (!(*lst))
-		return ;
-	while (*lst)
+	dupl = (char *) malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!dupl)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
+		dupl[i] = s[i];
+		i++;
 	}
-	*lst = NULL;
+	dupl[i] = '\0';
+	return (dupl);
 }
+
+// int main(void)
+// {
+// 	char *s = ft_strdup("Hello ");
+// 	printf("%s\n", s);
+// 	char *s1 = strdup("Hello ");
+// 	printf("%s\n", s1);
+// 	free(s1);
+// }
