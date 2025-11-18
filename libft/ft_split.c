@@ -6,13 +6,13 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:29:25 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/15 13:44:34 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/18 00:22:40 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -36,7 +36,7 @@ int	count_words(char const *s, char c)
 	return (counter);
 }
 
-char	**malloc_strings(char const *s, char c)
+static char	**malloc_strings(char const *s, char c)
 {
 	char	**arr;
 	int		i;
@@ -65,7 +65,7 @@ char	**malloc_strings(char const *s, char c)
 	return (arr);
 }
 
-char	**add_words(char **arr, const char *s, char c)
+static char	**add_words(char **arr, const char *s, char c)
 {
 	int		counter;
 	int		i;

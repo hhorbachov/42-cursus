@@ -6,13 +6,13 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 17:06:32 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/15 13:51:40 by hlib             ###   ########.fr       */
+/*   Updated: 2025/11/18 00:23:43 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_make_empty_str(void)
+static char	*ft_make_empty_str(void)
 {
 	char	*str;
 

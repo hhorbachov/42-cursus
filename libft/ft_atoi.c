@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhorbach <hhorbach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:55:11 by hhorbach          #+#    #+#             */
-/*   Updated: 2025/11/07 16:19:37 by hhorbach         ###   ########.fr       */
+/*   Updated: 2025/11/18 00:21:19 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	sign_calc(const char nptr)
+static int	sign_calc(const char nptr)
 {
 	int	sign;
 
