@@ -6,7 +6,7 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 20:51:18 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/23 21:04:25 by hlib             ###   ########.fr       */
+/*   Updated: 2026/01/07 16:29:33 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 int	ft_print_unsigned(unsigned int nbr)
 {
-	int		len;
-	char	*s;
+	int	len;
 
-	if (nbr < 0)
-		return (0);
-	s = ft_itoa(nbr);
-	if (!s)
-		return (0);
-	len = ft_strlen(s);
-	while (*s)
+	len = 0;
+	if (nbr >= 10)
 	{
-		ft_print_char(*s);
-		s++;
+		len += ft_print_unsigned(nbr / 10);
+		len += ft_print_unsigned(nbr % 10);
+	}
+	else
+	{
+		len += ft_print_char(nbr + '0');
 	}
 	return (len);
 }

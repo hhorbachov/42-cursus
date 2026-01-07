@@ -5,24 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/23 20:46:44 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/23 21:00:24 by hlib             ###   ########.fr       */
+/*   Created: 2026/01/07 15:51:08 by hlib              #+#    #+#             */
+/*   Updated: 2026/01/07 16:28:32 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf_str(char *s)
+int	ft_print_str(char *s)
 {
-	int	len;
+	int	i;
 
+	i = 0;
 	if (!s)
-		return (0);
-	len = ft_strlen(s);
-	while (*s)
 	{
-		ft_print_char(*s);
-		s++;
+		write(1, "(null)", 6);
+		return (6);
 	}
-	return (len);
+	while (s[i])
+	{
+		ft_print_char(s[i]);
+		i++;
+	}
+	return (i);
 }

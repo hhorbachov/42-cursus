@@ -6,15 +6,14 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 20:36:54 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/23 20:53:52 by hlib             ###   ########.fr       */
+/*   Updated: 2025/12/17 16:26:59 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_char(char c)
+int	ft_print_char(int c)
 {
-	if (ft_isascii)
-		write(1, &c, 1);
+	write(1, &c, 1);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 21:05:34 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/23 21:37:29 by hlib             ###   ########.fr       */
+/*   Updated: 2026/01/07 16:21:26 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,19 @@
 
 int	ft_print_hex(unsigned int nbr)
 {
-	char	*hexa;
-	int		i;
-	int		j;
-	int		temp;
+	int		len;
+	char	*base;
 
-	hexa = (char *)ft_calloc(ft_strlen(ft_itoa(nbr)), sizeof(char));
-	if (!hexa)
-		return (0);
-	i = 1;
-	while (nbr != 0)
+	len = 0;
+	base = "0123456789abcdef";
+	if (nbr >= 16)
 	{
-		temp = nbr % 16;
-		if (temp < 10)
-			temp = temp + 48;
-		else
-			temp = temp + 87;
-		hexa[i++] = temp;
-		nbr /= 16;
+		len += ft_print_hex(nbr / 16);
+		len += ft_print_hex(nbr % 16);
 	}
-	return (ft_print_str(hexa));
+	else
+	{
+		len += ft_print_char(base[nbr]);
+	}
+	return (len);
 }

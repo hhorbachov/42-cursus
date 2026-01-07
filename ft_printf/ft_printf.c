@@ -6,11 +6,12 @@
 /*   By: hlib <hlib@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 18:12:37 by hlib              #+#    #+#             */
-/*   Updated: 2025/11/23 21:40:23 by hlib             ###   ########.fr       */
+/*   Updated: 2026/01/07 16:46:08 by hlib             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "../libft/libft.h"
 
 static int	ft_print(char c, va_list args)
 {
@@ -18,19 +19,22 @@ static int	ft_print(char c, va_list args)
 
 	len = 1;
 	if (c == 'c')
-		ft_print_char(va_arg(args, char));
+		len = ft_print_char(va_arg(args, int));
 	else if (c == 'd' || c == 'i')
-		ft_print_nbr(va_arg(args, int));
+		len = ft_print_nbr(va_arg(args, int));
 	else if (c == 's')
-		ft_print_str(va_arg(args, char *));
+		len = ft_print_str(va_arg(args, char *));
 	else if (c == 'u')
-		ft_print_str(va_arg(args, unsigned int));
+		len = ft_print_unsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
-		ft_print_hex(va_arg(args, unsigned int));
+		len = ft_print_hex(va_arg(args, unsigned int));
 	else if (c == 'X')
-		ft_print_hex_upper(va_arg(args, unsigned int));
+		len = ft_print_hex_upper(va_arg(args, unsigned int));
+	else if (c == 'p')
+		len = ft_print_ptr(va_arg(args, void *));
 	else if (c == '%')
-		write(1, '%', 1);
+		write(1, "%", 1);
+	return (len);
 }
 
 int	ft_printf(const char *input, ...)
@@ -40,20 +44,22 @@ int	ft_printf(const char *input, ...)
 	int		len;
 
 	i = 0;
-	len = ft_strlen(input);
+	len = 0;
 	va_start(args, input);
 	while (input[i] != '\0')
 	{
 		if (input[i] != '%')
+		{
 			write(1, &input[i], 1);
+			i++;
+			len++;
+		}
 		else if (input[i] == '%')
 		{
-			ft_print(input[i + 1], args);
-			i++;
+			len += ft_print(input[i + 1], args);
+			i += 2;
 		}
-		i++;
 	}
 	va_end(args);
 	return (len);
 }
-
