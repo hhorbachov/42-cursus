@@ -22,8 +22,6 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-bonus: all
-
 $(NAME): $(LIBFT) $(OBJS)
 	@cp $(LIBFT) $(NAME)
 	@ar rcs $(NAME) $(OBJS)
@@ -44,4 +42,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
