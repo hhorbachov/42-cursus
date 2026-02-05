@@ -76,7 +76,7 @@ To connect from your host terminal (ensure port forwarding is set to Host: 2222 
 
 The monitoring script is located at /usr/local/bin/monitoring.sh. It is executed automatically by cron every 10 minutes. To run it manually:
 
-`sudo /usr/local/bin/monitoring.sh`
+`sudo /home/hhorbach/monitoring.sh`
 
 # Resources
 
